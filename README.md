@@ -6,7 +6,7 @@ Media is a [Golang](http://golang.org/) library that supports the upload of *fil
 - optional multiple sizes for each media resource.
 - Accessibility helpers.
 
-[![GoDoc](https://godoc.org/github.com/qor/media?status.svg)](https://godoc.org/github.com/qor/media)
+[![GoDoc](https://godoc.org/github.com/itech-eng/media?status.svg)](https://godoc.org/github.com/itech-eng/media)
 
 ###### File Types
 
@@ -25,7 +25,7 @@ Media depends on [GORM](https://github.com/jinzhu/gorm) models as it is using [G
 ```go
 import (
   "github.com/jinzhu/gorm"
-  "github.com/qor/media"
+  "github.com/itech-eng/media"
 )
 
 DB, err = gorm.Open("sqlite3", "demo_db") // [gorm](https://github.com/jinzhu/gorm)
@@ -33,12 +33,12 @@ DB, err = gorm.Open("sqlite3", "demo_db") // [gorm](https://github.com/jinzhu/go
 media.RegisterCallbacks(DB)
 ```
 
-Then add [OSS(Object Storage Service)](https://github.com/qor/oss) to your model:
+Then add [OSS(Object Storage Service)](https://github.com/itech-eng/oss) to your model:
 
 ```go
 import (
   "github.com/jinzhu/gorm"
-  "github.com/qor/media/oss"
+  "github.com/itech-eng/media/oss"
 )
 
 type Product struct {
@@ -61,7 +61,7 @@ oss.Storage := s3.New(s3.Config{AccessID: "access_id", AccessKey: "access_key", 
 
 ## Operate stored files
 
-The [OSS(Object Storage Service)](https://github.com/qor/oss) provides a pretty simple API to operate files on filesytem or cloud storage
+The [OSS(Object Storage Service)](https://github.com/itech-eng/oss) provides a pretty simple API to operate files on filesytem or cloud storage
 
 ```go
 type StorageInterface interface {
@@ -100,7 +100,7 @@ You can implement the `GetSizes` function to predefine image sizes. The size nam
 
 ```go
 import (
-  "github.com/qor/media/oss"
+  "github.com/itech-eng/media/oss"
   "github.com/jinzhu/gorm"
 )
 
@@ -159,7 +159,7 @@ for _, path := range []string{"system", "javascripts", "stylesheets", "images"} 
 
 The files under `public` will be exposed to public(especially the search engine!), Imagine someone upload a illegal or sensitive file to your server. The directory is fully visible to everyone and its indexable by search engines and boom!
 
-To avoid this problem, we made a safer `FileServer` function [here](https://github.com/qor/qor/blob/master/utils/utils.go#L176). This function serves file only. So the previous code now turned into:
+To avoid this problem, we made a safer `FileServer` function [here](https://github.com/itech-eng/qor/blob/master/utils/utils.go#L176). This function serves file only. So the previous code now turned into:
 
 ```go
 for _, path := range []string{"system", "javascripts", "stylesheets", "images"} {

@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/disintegration/imaging"
-	"github.com/qor/qor/utils"
+	"github.com/itech-eng/qor/utils"
 )
 
 func getImageFormat(url string) (*imaging.Format, error) {

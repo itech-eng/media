@@ -6,7 +6,7 @@ import (
 	"reflect"
 
 	"github.com/jinzhu/gorm"
-	"github.com/qor/serializable_meta"
+	"github.com/itech-eng/serializable_meta"
 )
 
 var (
